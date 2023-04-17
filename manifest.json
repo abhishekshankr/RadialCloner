@@ -1,0 +1,12 @@
+{
+  "name": "Radial Cloner",
+  "id": "1224915988174409248",
+  "api": "1.0.0",
+  "main": "code.js",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "editorType": [
+    "figma"
+  ],
+  "ui": "ui.html"
+}

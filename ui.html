@@ -1,0 +1,220 @@
+<head>
+  <style>
+    body {
+      font-family: Inter, sans-serif;
+      margin: 16px;
+    }
+
+    input,
+    button {
+      font-family: Inter, sans-serif;
+    }
+
+    label {
+      display: block;
+      margin-left: 4px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 8px 12px 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 8px;
+    }
+
+    .input-left {
+      border-radius: 8px 0px 0px 8px;
+    }
+
+    .input-right {
+      border-radius: 0px 8px 8px 0px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-radius: 32px;
+    }
+
+    button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 50%;
+      padding: 8px;
+      background-color: #fff;
+      color: #000;
+      font-size: 10px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      outline: none;
+      border-radius: 16px;
+    }
+
+    .button-left {
+      border-radius: 8px 0px 0px 8px;
+    }
+
+    .button-right {
+      border-radius: 0px 8px 8px 0px;
+    }
+
+    button.selected {
+      border: 2px solid #2d2d2d;
+      background-color: rgba(75, 75, 75, 0.1)
+    }
+
+    button svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .submit-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 16px 8px 16px 8px;
+      background-color: #2d2d2d;
+      color: white;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      margin-top: 24px;
+    }
+
+    .submit-btn:hover {
+      background-color: #4d4d4d;
+    }
+
+    .submit-btn-icon {
+      width: 24px;
+      height: 24px;
+      fill: white;
+      margin-right: 8px;
+    }
+
+    .inputs-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="inputs-container">
+      <div>
+        
+        <label for="numberOfCopies">Clone Count</label>
+        <input type="number" class="input-left" id="numberOfCopies" value="8" min="1" step="1">
+
+      </div>
+      <div>
+
+        <label for="circleWidth">Circle Width</label>
+        <input type="number" class="input-right" id="circleWidth" value="400" min="12" step="1">
+
+      </div>
+    </div>
+    <label>Alignment</label>
+    <div class="button-group">
+
+      <button id="tangential" class="button-left selected">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 18L10.5 18" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M7.39337 7.39307L12.6967 12.6964" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M18 3L18 10.5" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M28.6066 7.39307L23.3033 12.6964" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M33 18L25.5 18" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M28.6066 28.6069L23.3033 23.3036" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M18 33L18 25.5" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M7.39337 28.6069L12.6967 23.3036" stroke="#1C1B1F" stroke-width="3.5" />
+        </svg>
+      </button>
+
+      <button id="original" class="button-right">
+        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7 14.25L7 21.75" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M10.295 6.29492L10.295 13.7949" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M18.25 3L18.25 10.5" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M26.205 6.29492L26.205 13.7949" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M29.5 14.25L29.5 21.75" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M26.205 22.2051L26.205 29.7051" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M18.25 25.5L18.25 33" stroke="#1C1B1F" stroke-width="3.5" />
+          <path d="M10.295 22.2051L10.295 29.7051" stroke="#1C1B1F" stroke-width="3.5" />
+        </svg>
+      </button>
+
+    </div>
+    <button type="button" class="submit-btn">
+      <svg class="submit-btn-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M4.21469 14.3618L9.04666 21.6382L4.83196 24.437L0 17.1606L4.21469 14.3618Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M10.8249 5.67973L9.09644 14.2416L4.13714 13.2404L5.86559 4.67856L10.8249 5.67973Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M21.6382 4.21469L14.3618 9.04666L11.563 4.83196L18.8394 0L21.6382 4.21469Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M30.3203 10.8249L21.7584 9.09645L22.7596 4.13714L31.3214 5.8656L30.3203 10.8249Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M31.7853 21.6382L26.9533 14.3618L31.168 11.563L36 18.8394L31.7853 21.6382Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M25.1751 30.3203L26.9036 21.7584L31.8629 22.7596L30.1344 31.3214L25.1751 30.3203Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M14.3618 31.7853L21.6382 26.9533L24.437 31.168L17.1606 36L14.3618 31.7853Z" fill="white" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M5.67973 25.1751L14.2416 26.9036L13.2404 31.8629L4.67856 30.1344L5.67973 25.1751Z" fill="white" />
+      </svg>
+      Create Clones</button>
+  </div>
+
+  <script>
+    let tangential = true;
+
+    const originalBtn = document.getElementById('original');
+    const tangentialBtn = document.getElementById('tangential');
+
+    originalBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      originalBtn.classList.add('selected');
+      tangentialBtn.classList.remove('selected');
+      tangential = false;
+    });
+
+    tangentialBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      tangentialBtn.classList.add('selected');
+      originalBtn.classList.remove('selected');
+      tangential = true;
+    });
+
+    document.querySelector('.submit-btn').addEventListener('click', () => {
+      const numberOfCopies = parseInt(document.getElementById('numberOfCopies').value, 10);
+      const circleWidth = parseInt(document.getElementById('circleWidth').value, 10);
+
+      // Create copies
+      parent.postMessage({
+        pluginMessage: {
+          type: 'create-copies',
+          numberOfCopies,
+          circleWidth,
+          tangential,
+        }
+      }, '*');
+    });
+  </script>
+</body>
+
+</html>
