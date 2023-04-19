@@ -116,7 +116,7 @@
   <div>
     <div class="inputs-container">
       <div>
-        
+
         <label for="numberOfCopies">Clone Count</label>
         <input type="number" class="input-left" id="numberOfCopies" value="8" min="1" step="1">
 
@@ -181,10 +181,30 @@
   </div>
 
   <script>
-    let tangential = true;
+    
+    
 
     const originalBtn = document.getElementById('original');
     const tangentialBtn = document.getElementById('tangential');
+
+    window.addEventListener("message", (event) => {
+      const message = event.data.pluginMessage;
+
+      if (message.type === "load-saved-data") {
+        const { numberOfCopies, circleWidth, tangential } = message.data;
+
+        // Update your input fields with the saved values
+        document.getElementById('numberOfCopies').value = numberOfCopies;
+        document.getElementById('circleWidth').value = circleWidth;
+
+        if (!tangential) {
+          originalBtn.click();
+        } else {
+          tangentialBtn.click();
+        }
+      }
+    });
+
 
     originalBtn.addEventListener('click', (event) => {
       event.preventDefault();

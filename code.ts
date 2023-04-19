@@ -1,9 +1,25 @@
 figma.showUI(__html__, { width: 240, height: 280 });
 
+async function loadSavedData() {
+  // Load saved data from client storage
+  const numberOfCopies = await figma.clientStorage.getAsync('numberOfCopies') || 8;
+  const circleWidth = await figma.clientStorage.getAsync('circleWidth') || 400;
+  const tangential = await figma.clientStorage.getAsync('tangential')? true : false;
+
+  // Send the saved data to the UI
+  figma.ui.postMessage({ type: 'load-saved-data', data: { numberOfCopies, circleWidth, tangential } });
+}
+
+loadSavedData();
+
 figma.ui.onmessage = async (msg) => {
   if (msg.type === "create-copies") {
     const { numberOfCopies, circleWidth, tangential } = msg;
     const nodes = figma.currentPage.selection;
+
+    figma.clientStorage.setAsync('numberOfCopies', numberOfCopies);
+    figma.clientStorage.setAsync('circleWidth', circleWidth);
+    figma.clientStorage.setAsync('tangential', tangential);
 
     if (nodes.length === 1) {
       const node = nodes[0];
