@@ -33,7 +33,7 @@ figma.ui.onmessage = async (msg) => {
 
       figma.notify(`New Radial created for "${layerName}"`);
       
-      figma.closePlugin();
+      //figma.closePlugin();
 
     } else {
       figma.notify("Please select a single object");
